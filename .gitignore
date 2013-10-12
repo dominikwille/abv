@@ -30,4 +30,5 @@
 *.toc
 *.vrb
 *.xdy
-*.tdo*.core
+*.tdo
+*.core
