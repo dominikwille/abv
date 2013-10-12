@@ -15,18 +15,25 @@
 \usepackage{dsfont}
 \usepackage{hyperref}
 \usepackage{caption}
+\usepackage{ifthen}
 
-\newcommand\myTitle{\LaTeX - Grundlagen}
-\newcommand\myAuthor{Dominik Wille}
-\newcommand{\myImage}[1]{
+\newcommand{\myImage}[2]{
   \begin{center}
     \begin{minipage}{\linewidth}
       \centering
       \makebox[0cm]{\includegraphics[width=\textwidth]{#1}}
     \end{minipage}
-    \captionof{figure}{plotted measure values}
+    \ifthenelse{ \equal{#2}{}} {
+      
+    } {
+    \captionof{figure}{#2}
+    }
   \end{center}
 }
+
+\newcommand\myTitle{\LaTeX - Grundlagen}
+\newcommand\myAuthor{Dominik Wille}
+\newcommand\myDate{22 Oktober 2013}
 
 \begin{document}
 \begin{titlepage}
@@ -41,8 +48,10 @@
     \bigskip
     \textbf{\myAuthor}
 
+    \myDate
+
     \vspace{2cm}
-    \myImage{images/typesetting}
+    \myImage{images/typesetting}{}
   \end{center}
   \vfill
   \enlargethispage{2cm}
@@ -64,7 +73,27 @@ Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlage
 Im folegenden werde ich sowohl auf den Textsatz mit Latex als auch auf einen meiner meinung nach sinnvollen
 Arbeitsweg mit Latex eingehen.
 
+Desweiteren möchte ich dieses Dokument möglichst so gestalten, dass viele wiederkehrende Elemete in Latex in
+Makros gekaplselt werden und somit für weitere Dokumente wiederverwendet werden können.
+
 \section{Textsatz}
+Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Sehr oft ist es hilfreich
+eine automatische Worttreenung zu aktivieren um einen schönen Blocksatz zu erreichen. Das \verb+babel+ Paket
+liefert für viele Sprachen eine automatische Silbenerkennung, die eine korrekte Worttrennung ermöglicht. Um
+das Paket einzubinden genügt ein simples
+\begin{verbatim}
+\usepackage[english, ngerman, ...]{babel} 
+\end{verbatim}
+in der Präambel. Einer der großen Vorteile bei der Arbeit mit Latex ist, dass man ein semantisch korrektes
+Dokument schreibt und die Darstellung vom Dokument ersteinmal nichts mit deren Inhalt zutun hat. Um Teile
+des Textes \textit{kursiv}, \textbf{fett} oder \underline{unterstrichen} darzustellen bietet sich die Verwendung 
+\item von den einfachen Kommandos 
+\begin{verbatim}
+\textbf{fett gesetzter Text}
+\textit{kursiv gesetzter Text}
+\underline{unterstricherner Text}
+\end{verbatim}
+an.
 
 \section{Bilder}
 \section{Mathematiksatz}
