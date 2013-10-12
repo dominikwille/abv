@@ -1,18 +1,74 @@
-\documentclass{article}
+\documentclass[a4paper, parskip=half]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[english, ngerman]{babel}%trennregeln für En und De
+\usepackage{libertine}
+\usepackage{xstring}
+\usepackage{amssymb,amstext,amsmath}
+\usepackage{graphicx}
+\usepackage{sectsty}
+\usepackage{multirow}
+\usepackage{dsfont}
+\usepackage{amsfonts}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage{caption}
 
-\title{\LaTeX - Grundlagen}
-\author{Dominik Wille}
+\newcommand\myTitle{\LaTeX - Grundlagen}
+\newcommand\myAuthor{Dominik Wille}
+\newcommand{\myImage}[1]{
+  \begin{center}
+    \begin{minipage}{\linewidth}
+      \centering
+      \makebox[0cm]{\includegraphics[width=\textwidth]{#1}}
+    \end{minipage}
+    \captionof{figure}{plotted measure values}
+  \end{center}
+}
 
 \begin{document}
-  \maketitle
-  \section{Vorwort}
-  Bei diesem Dokument handelt es sich um eine im Ramen des ABV-Kurses Betriebsysteme und Programmieren der
-  Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
+\begin{titlepage}
+  \begin{center}
+    \vspace{5cm}
+    \huge\bfseries
+    \myTitle
+    \vspace{1cm}
 
-  Im folegenden werde ich sowohl auf den Textsatz mit Latex als auch auf einen meiner meinung nach sinnvollen
-  Arbeitsweg mit Latex eingehen.
-  
+    \large\normalfont von
 
+    \bigskip
+    \textbf{\myAuthor}
+
+    \vspace{2cm}
+    \myImage{images/typesetting}
+  \end{center}
+  \vfill
+  \enlargethispage{2cm}
+  \parbox[t]{0.45\textwidth}{%
+    Freie Universität Berlin\\
+    Zentraleinrichtung für Datenverarbeitung\\
+    Betriebsysteme und Programmieren
+  }
+  \parbox[t]{0.45\textwidth}{\raggedleft%
+    Dozent: \\
+    Dr.\,Herbert Voß\\
+  }
+\end{titlepage}
+%% \maketitle
+\section{Vorwort}
+Bei diesem Dokument handelt es sich um eine im Ramen des ABV-Kurses Betriebsysteme und Programmieren der
+Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
+
+Im folegenden werde ich sowohl auf den Textsatz mit Latex als auch auf einen meiner meinung nach sinnvollen
+Arbeitsweg mit Latex eingehen.
+
+\section{Textsatz}
+
+\section{Bilder}
+\section{Mathematiksatz}
+\section{Tabellen}
+\section{Eigene Kommandos}
+\section{Arbeiten im Team}
 \end{document}
