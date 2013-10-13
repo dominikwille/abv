@@ -32,6 +32,35 @@
   \end{center}
 }
 
+\newcommand{\myTitlepage}{%
+\begin{titlepage}
+  \begin{center}
+    \vspace{5cm}
+    \huge\bfseries
+    \myTitle
+    \vspace{1cm}
+
+    \large\normalfont von
+
+    \bigskip
+    \textbf{\myAuthor}
+
+    \myDate
+
+    \vspace{2cm}
+    \myImage{\myTitleImage}{} %This Image is GNU GPL licenced.
+  \end{center}
+  \vfill
+  \enlargethispage{2cm}
+  \parbox[t]{0.45\textwidth}{%
+   \myTitleLeft
+  }
+  \parbox[t]{0.45\textwidth}{\raggedleft%
+    \myTitleRight
+  }
+\end{titlepage}
+}
+
 \newcommand{\mySecRef}[1]{%
   \hyperref[sec:#1]{Punkt-}\ref{sec:#1}%
 }

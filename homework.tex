@@ -15,37 +15,19 @@
 \newcommand{\myTitle}{\LaTeX - Grundlagen}
 \newcommand{\myAuthor}{Dominik Wille}
 \newcommand{\myDate}{22 Oktober 2013}
+\newcommand{\myTitleImage}{images/typesetting}
+\newcommand{\myTitleLeft}{%
+   Freie Universität Berlin\\
+   Zentraleinrichtung für Datenverarbeitung\\
+   Betriebsysteme und Programmieren%
+}
+\newcommand{\myTitleRight}{%
+  Dozent: \\
+  Dr.\,Herbert Voß
+}
 
 \begin{document}
-\begin{titlepage}
-  \begin{center}
-    \vspace{5cm}
-    \huge\bfseries
-    \myTitle
-    \vspace{1cm}
-
-    \large\normalfont von
-
-    \bigskip
-    \textbf{\myAuthor}
-
-    \myDate
-
-    \vspace{2cm}
-    \myImage{images/typesetting}{} %This Image is GNU GPL licenced.
-  \end{center}
-  \vfill
-  \enlargethispage{2cm}
-  \parbox[t]{0.45\textwidth}{%
-    Freie Universität Berlin\\
-    Zentraleinrichtung für Datenverarbeitung\\
-    Betriebsysteme und Programmieren
-  }
-  \parbox[t]{0.45\textwidth}{\raggedleft%
-    Dozent: \\
-    Dr.\,Herbert Voß\\
-  }
-\end{titlepage}
+\myTitlepage
 \section{Vorwort}
 Bei diesem Dokument handelt es sich um eine im Ramen des ABV-Kurses Betriebsysteme und Programmieren der
 Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
@@ -74,7 +56,7 @@ diesem Dokument bespielsweise
 um die Seitenränder auf europäische Normen einzustellen und um Absätze als Leerzeile mit halber höhe zu setzen.
 
 Mit \verb+\maketitle+ bietet Latex auch eine möglichkeit einen Dokumentenkopf zu erzeugen. Die verwendeten
-Informationen werden vorher in der Präambel mit \verb+\title{...}+, \verb+ \auther{...}+ und
+Informationen werden vorher in der Präambel mit \verb+\title{...}+, \verb+\auther{...}+ und
 \verb+ \date{...}+ definiert. Möchte man eine Eigene Titelseite gestalten kann man das zu Beginn des Dokuments
 in der 
 \begin{verbatim}
@@ -281,7 +263,7 @@ die kleine Unterschiede haben:
   \item[input] Fügt die Kommandos aus der angegebenen datei in die aktuelle Datei ein.
   \item[include] Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
     Seite. 
-\end{itemize}
+\end{description}
 
 \section{Verweise/Referenzen}
 Die einfachste möglichkeit in Latex verweise zu implementieren ist es den abschnitten, auf die man verweisen
