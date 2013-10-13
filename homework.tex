@@ -140,6 +140,7 @@ von den einfachen Kommandos
 \underline{unterstricherner Text}
 \end{verbatim}
 an. 
+
 \section{Bilder}
 Bilder können in Latex mit dem \myPackage{graphicx} eingebunden werden, dieses unterstützt gängige
 Bildformate wie \myFormat{png, jpeg} aber auch Graphiken im \myFormat{pdf} Format können eingebunden werden.
@@ -166,6 +167,7 @@ durch ein \verb+\captionof{figure}{...}+ hinzugefügt werden.
 
 Da es sich nun um alles andere als ein kurzes einfaches Kommando handelt bietet es sich an diesen block als neues
 Kommando zu definieren, siehe hierfür \mySecRef{customCommands}.
+
 \section{Mathematiksatz}
 Da ich im Physikstudium diverse Protokolle mit viel mthematischem Inhalt schreibe möchte ich auch die
 Grundlagen vom Mathematiksatz in Latex erkären.
@@ -204,7 +206,9 @@ Was die folgende Ausgabe erzeugt:
   \pm \sqrt{ \frac{1}{4}p^2 - q} &= x + \frac{1}{2}p \\
   x_{1/2}            &= \frac{1}{2}p \pm \sqrt{\left(\frac{1}{2}p\right)^2 - q}  
 \end{align}
+
 \section{Tabellen}
+
 \section{Eigene Kommandos}\label{sec:customCommands}
 Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
 die üergeben Parameter können mit \verb+#1+, \verb+#2+, ... verwendet werden. Auch vorhandene Kommandos
@@ -224,6 +228,7 @@ setzen möchte, aber auf jeden Fall alle gleich sein sollen.
 Eine andere Anwendung besteht darin Kommandos dafür zu benutzen kanze Dokumententeile zu gestalten und im
 Eigentlichen Dokument nur die Kommandos aufzurufen. Da das Dokuemnt in einer solchen Anwendung keinen Inhalt
 enthält kann man es als Vorlage wieder verwenden. 
+
 \section{Datein einbinden}
 Gerade in größeren Dokumenten kann man schnell die übersicht verlieren oder man möchte Definitionen oder
 Teile des Dokuments nicht im Hauptdokument haben. Außerdem kann bei sehr langen Dokumenten das Übersetzten
@@ -237,6 +242,22 @@ die kleine Unterschiede haben:
   \item \textbf{include}: Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
     Seite. 
 \end{itemize}
+
 \section{Verweise/Referenzen}
+Die einfachste möglichkeit in Latex verweise zu implementieren ist es den abschnitten, auf die man verweisen
+möchte ein label zu geben. Das kann man einfach mit dem \verb+\label{...}+ Kommando machen. Verweise können auf
+Verschiedene Objekte zeigen, z.B. Bilder, Tabellen, Sektionen oder Gleichungen.
+
+Den Verweis kann man einfach mit \verb+\ref{label}+ implementieren, angezeigt wird immer die Nummer des Objekts,
+auf das verwiesen wird. Besonders praktisch ist hier auch das \myPackage{hyperref}, mit dessen Hilfe man aktive
+links innerhalb des Dokuments erhält, um unschöne Änderungen des Textsatzes zu verhindern lädt man das Paket mit
+der hidelinks Option:
+\begin{verbatim}
+\usepackage[hidelinks]{hyperref}
+\end{verbatim}
+
+Für Gleichungen im Mathematikmodus, die man natürlich auch mit einem label versehn kann gibt es außerdem noch
+den \verb+\eqref+ der eine angepasste Ausgabe mit Klammern bereitstellt. 
+
 \section{Arbeiten im Team}
 \end{document}
