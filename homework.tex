@@ -47,9 +47,9 @@
   \textit{#1}%
 }
 
-\newcommand\myTitle{\LaTeX - Grundlagen}
-\newcommand\myAuthor{Dominik Wille}
-\newcommand\myDate{22 Oktober 2013}
+\newcommand{\myTitle}{\LaTeX - Grundlagen}
+\newcommand{\myAuthor}{Dominik Wille}
+\newcommand{\myDate}{22 Oktober 2013}
 
 \begin{document}
 \begin{titlepage}
@@ -208,7 +208,23 @@ Was die folgende Ausgabe erzeugt:
 \section{Eigene Kommandos}\label{sec:customCommands}
 Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
 die üergeben Parameter können mit \verb+#1+, \verb+#2+, ... verwendet werden. Auch vorhandene Kommandos
-können mit \verb+\renewcommand[anzahl parameter]{\kommando}+ umgeschrieben werden. 
+können mit \verb+\renewcommand[anzahl parameter]{\kommando}+ umgeschrieben werden. Als beispiel kann man mit
+\begin{verbatim}
+\newcommand{\fett}[1]{%
+  \textit{#1}%
+}
+\end{verbatim}
+nun mit einem aufruf von \verb+\fett{...}+ text fett setzten.
+
+Kommandos können sehr Praktisch sein um wiederkehrende Code-Blöcke zu kapseln, aber auch um ein Dokument
+semantisch zu schreiben. Ich benutze bespielsweise in diesem Dokument für alle Paketnamen, Dateipfade und
+andere wiederkehrende Elemente, weil ich beim schreiben des Dokuments noch nicht genau weiß wie ich diese
+setzen möchte, aber auf jeden Fall alle gleich sein sollen. 
+
+Eine andere Anwendung besteht darin Kommandos dafür zu benutzen kanze Dokumententeile zu gestalten und im
+Eigentlichen Dokument nur die Kommandos aufzurufen. Da das Dokuemnt in einer solchen Anwendung keinen Inhalt
+enthält kann man es als Vorlage wieder verwenden. 
+\section{mehrere Datein}
 \section{Verweise/Referenzen}
 \section{Arbeiten im Team}
 \end{document}
