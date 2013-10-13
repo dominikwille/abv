@@ -65,7 +65,6 @@
     Dr.\,Herbert Voß\\
   }
 \end{titlepage}
-%% \maketitle
 \section{Vorwort}
 Bei diesem Dokument handelt es sich um eine im Ramen des ABV-Kurses Betriebsysteme und Programmieren der
 Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
@@ -75,6 +74,37 @@ Arbeitsweg mit Latex eingehen.
 
 Desweiteren möchte ich dieses Dokument möglichst so gestalten, dass viele wiederkehrende Elemete in Latex in
 Makros gekaplselt werden und somit für weitere Dokumente wiederverwendet werden können.
+
+\section{Dokumentenklassen}
+Jedes Latex-Dokument verwendet eine so genannte Dokumentenklasse, diese gibt ein Grundgerüst des Dokuments,
+wie z.B. Seitenrandabstände, Schriftgrößen und Einrückungsverhalten vor. Definiert wird die Dokumentenklasse
+mit dem Kommando \verb+\documentclass{...}+. Die wichtigsten Dokumentenklassen für den deutschsprachigen
+Raum sind:
+\begin{itemize}
+\item \textbf{scrartcl} Klasse für kurze Artikel.
+\item \textbf{scrreprt} Klasse für lange Berichte.
+\item \textbf{scrbook} Klasse für Bücher.  
+\end{itemize}
+Die meisten Dokumentenklassen ermöglichen es außerdem gewisse parameter optional zu verändern. Ich verwende in
+diesem Dokument bespielsweise 
+\begin{verbatim}
+\documentclass[a4paper, parskip=half]{scrartcl}
+\end{verbatim}
+um die Seitenränder auf europäische Normen einzustellen und um Absätze als Leerzeile mit halber höhe zu setzen.
+
+Um ein Inhaltsverzeichnis zu erzeugen reicht es \verb+\tableofcotents+ aufzurufen. Dieses Kommando erzeugt
+automatisch ein Inhaltsverzeichnis der Sektionen des Latex-Dokuments.
+
+Mit \verb+\maketitle+ bietet Latex auch eine möglichkeit einen Dokumentenkopf zu erzeugen. Die verwendeten
+Informationen werden vorher in der Präambel mit \verb+\title{...}+, \verb+ \auther{...}+ und
+\verb+ \date{...}+ definiert. Möchte man eine Eigene Titelseite gestalten kann man das zu Beginn des Dokuments
+in der 
+\begin{verbatim}
+\begin{titlepage}
+...
+\end{titlepage}
+\end{verbatim}
+Umgebung machen.
 
 \section{Textsatz}
 Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Sehr oft ist es hilfreich
