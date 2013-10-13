@@ -224,7 +224,19 @@ setzen möchte, aber auf jeden Fall alle gleich sein sollen.
 Eine andere Anwendung besteht darin Kommandos dafür zu benutzen kanze Dokumententeile zu gestalten und im
 Eigentlichen Dokument nur die Kommandos aufzurufen. Da das Dokuemnt in einer solchen Anwendung keinen Inhalt
 enthält kann man es als Vorlage wieder verwenden. 
-\section{mehrere Datein}
+\section{Datein einbinden}
+Gerade in größeren Dokumenten kann man schnell die übersicht verlieren oder man möchte Definitionen oder
+Teile des Dokuments nicht im Hauptdokument haben. Außerdem kann bei sehr langen Dokumenten das Übersetzten
+von Latex in eine pdf viel zeit beanspruchen und man möchte nicht bei jeder Änderung das gesamte Dokument
+übersetzen. 
+
+Latex bietet dafür zwei Kommandos um sepeparte Datein einzubinden \verb+\input{...}+ und \verb+\include{...}+,
+die kleine Unterschiede haben:
+\begin{itemize}
+  \item \textbf{input}: Fügt die Kommandos aus der angegebenen datei in die aktuelle Datei ein.
+  \item \textbf{include}: Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
+    Seite. 
+\end{itemize}
 \section{Verweise/Referenzen}
 \section{Arbeiten im Team}
 \end{document}
