@@ -108,9 +108,6 @@ diesem Dokument bespielsweise
 \end{verbatim}
 um die Seitenränder auf europäische Normen einzustellen und um Absätze als Leerzeile mit halber höhe zu setzen.
 
-Um ein Inhaltsverzeichnis zu erzeugen reicht es \verb+\tableofcotents+ aufzurufen. Dieses Kommando erzeugt
-automatisch ein Inhaltsverzeichnis der Sektionen des Latex-Dokuments.
-
 Mit \verb+\maketitle+ bietet Latex auch eine möglichkeit einen Dokumentenkopf zu erzeugen. Die verwendeten
 Informationen werden vorher in der Präambel mit \verb+\title{...}+, \verb+ \auther{...}+ und
 \verb+ \date{...}+ definiert. Möchte man eine Eigene Titelseite gestalten kann man das zu Beginn des Dokuments
@@ -121,6 +118,22 @@ in der
 \end{titlepage}
 \end{verbatim}
 Umgebung machen.
+
+\section{Gliederung}
+Latex bietet standardmäßig 7 Ebenen für die Gliederung eines Dokuments. Diese werden durch folgende Kommandos
+eingeleitet:
+\begin{itemize}
+\item \verb+\part{...}+
+\item \verb+\chapter{...}+
+\item \verb+\section{...}+
+\item \verb+\subsection{...}+
+\item \verb+\subsubsection{...}+
+\item \verb+\paragraph{...}+
+\item \verb+\subparagraph{...}+        
+\end{itemize}
+
+Um ein Inhaltsverzeichnis zu erzeugen reicht es \verb+\tableofcotents+ aufzurufen. Dieses Kommando erzeugt
+automatisch ein Inhaltsverzeichnis der Sektionen des Latex-Dokuments.
 
 \section{Textsatz}
 Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Sehr oft ist es hilfreich
@@ -207,6 +220,68 @@ Was die folgende Ausgabe erzeugt:
   x_{1/2}            &= \frac{1}{2}p \pm \sqrt{\left(\frac{1}{2}p\right)^2 - q}  
 \end{align}
 
+\section{Listen}
+Es gibt in Latex drei typen von Listen \verb+itemize+, \verb+enumerate+ und \verb+description+, die für
+Verschiedene Verwendungszwecke konzipiert sind:
+\begin{description}
+\item[itemize] Wird für unsortierte Listen oder Aufzählungen verwendet, die einzelnen Elmente sind alle
+  gleich ausgezeichnet.
+\item[enumerate] Wird für sortierte Listen oder Aufzählungen verwendet, die einzelten Elemente werden
+  nummeriert oder mit aufsteigenden Buchstaben versehen.
+\item[description] Wird für Listen von Elementen mit Namen verwendet. 
+\end{description}
+Listen können natürlich verschachtelt werden wobei sich die Darstellung der Listenpunkte je nach Verschachtelung
+ändert. Hier ein Beispiel:
+\begin{verbatim}
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item eins
+  \item zwei
+  \item drei
+  \end{enumerate}
+\item
+  \begin{itemize}
+  \item bla
+  \item bli
+  \item blu
+  \item
+    \begin{itemize}
+    \item ha
+    \item hi
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+\begin{description}
+\item[Delphin] Säugetier, dass im Meer lebt.
+\item[Pinguin] Vogel, der am Südpol lebt. 
+\end{description}
+\end{verbatim}
+Dieses Beispiel erzeugt die folgende Ausgabe:
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item eins
+  \item zwei
+  \item drei
+  \end{enumerate}
+\item
+  \begin{itemize}
+  \item bla
+  \item bli
+  \item blu
+  \item
+    \begin{itemize}
+    \item ha
+    \item hi
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+\begin{description}
+\item[Delphin] Säugetier, dass im Meer lebt.
+\item[Pinguin] Vogel, der am Südpol lebt. 
+\end{description}
+
 \section{Tabellen}
 
 \section{Eigene Kommandos}\label{sec:customCommands}
@@ -237,9 +312,9 @@ von Latex in eine pdf viel zeit beanspruchen und man möchte nicht bei jeder Än
 
 Latex bietet dafür zwei Kommandos um sepeparte Datein einzubinden \verb+\input{...}+ und \verb+\include{...}+,
 die kleine Unterschiede haben:
-\begin{itemize}
-  \item \textbf{input}: Fügt die Kommandos aus der angegebenen datei in die aktuelle Datei ein.
-  \item \textbf{include}: Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
+\begin{description}
+  \item[input] Fügt die Kommandos aus der angegebenen datei in die aktuelle Datei ein.
+  \item[include] Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
     Seite. 
 \end{itemize}
 
@@ -260,4 +335,31 @@ Für Gleichungen im Mathematikmodus, die man natürlich auch mit einem label ver
 den \verb+\eqref+ der eine angepasste Ausgabe mit Klammern bereitstellt. 
 
 \section{Arbeiten im Team}
+Eine Praktische Eigenschaft von Latex Dokumenten ist, dass man nicht das Dokument an sich sondern seine erzeugenden
+\myPath{*.tex}-Datein austauschen muss. Denn da es sich bei diesen um simple Textdatein handelt kann man diverse
+Versionierungssysteme für Latex-Dokumente verwenden. 
+
+Ich benutze für alle meine Dokumente \textit{git} zur verteilten Versionierung und habe mir generell angewöhnt
+auch alleine kein Latex-Dokument mehr zu schrieben ohne nach wichtigen Änderungen einen Commit zu machen. Das hat
+den Vorteil, dass mir jeder zeit jemand bei meinem Dokument helfen kann und seine Ändereungen automitisch mit
+meinen Änderungen zusammengefügt werden außerdem kann ich jede Änderung, die irgendwann commitet wurde später noch
+nachvollziehen.
+
+Um effektiv mit \textit{git} arbeiten sollte man die \myPath{.gitignore} dahingehend bearbeiten, dass die vom
+Latex-Übersetzungsvorgang erzeugten Datein nicht ausgetauscht werden. Hier meine konfiguration für
+\textit{pdflatex}:
+\begin{verbatim}
+*.toc
+*.aux
+*.log
+/*.pdf
+*.dvi
+\end{verbatim}
+
+\section{Fazit nach einem Jahr Latex}
+Nach nun ca. einem jahr in dem ich Latex benutze kann ich sagen, dass mein Schreiben von Dokumenten sich nachhaltig
+verändert hat. Die herangehensweise ist um längen systematischer als bei WYSIWIG basierter Software und ich
+erreiche bei längeren Dokumenten im endeffekt schneller gute Ergebnisse, da ich mich genau Ein mal mit der
+formattierung und dem Satz eines Elements beschäftige und nicht jedes mal aufs neue. Außerdem bietet Latex
+von Haus aus Textsatz auf höchstem Niveau, was bei anderer Software häufig nicht der Fall ist.
 \end{document}
