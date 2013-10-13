@@ -13,7 +13,7 @@
 \usepackage{graphics}
 \usepackage{float}
 \usepackage{dsfont}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{caption}
 \usepackage{ifthen}
 
@@ -29,6 +29,22 @@
     \captionof{figure}{#2}
     }
   \end{center}
+}
+
+\newcommand{\mySecRef}[1]{%
+  \hyperref[sec:#1]{Punkt-}\ref{sec:#1}%
+}
+
+\newcommand{\myPackage}[1]{%
+  \textit{#1}-Paket%
+}
+
+\newcommand{\myFormat}[1]{%
+  \textit{#1}%
+}
+
+\newcommand{\myPath}[1]{%
+  \textit{#1}%
 }
 
 \newcommand\myTitle{\LaTeX - Grundlagen}
@@ -51,7 +67,7 @@
     \myDate
 
     \vspace{2cm}
-    \myImage{images/typesetting}{}
+    \myImage{images/typesetting}{} %This Image is GNU GPL licenced.
   \end{center}
   \vfill
   \enlargethispage{2cm}
@@ -108,7 +124,7 @@ Umgebung machen.
 
 \section{Textsatz}
 Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Sehr oft ist es hilfreich
-eine automatische Worttreenung zu aktivieren um einen schönen Blocksatz zu erreichen. Das \verb+babel+ Paket
+eine automatische Worttreenung zu aktivieren um einen schönen Blocksatz zu erreichen. Das \myPackage{babel}
 liefert für viele Sprachen eine automatische Silbenerkennung, die eine korrekte Worttrennung ermöglicht. Um
 das Paket einzubinden genügt ein simples
 \begin{verbatim}
@@ -124,33 +140,75 @@ von den einfachen Kommandos
 \underline{unterstricherner Text}
 \end{verbatim}
 an. 
-\newpage
 \section{Bilder}
-Bilder können in Latex mit dem \verb+graphicx+ Paket eingebunden werden, dieses unterstützt gängige
-Bildformate wie \textit{png, jpeg} aber auch Graphiken im \textit{pdf} Format können eingebunden werden.
+Bilder können in Latex mit dem \myPackage{graphicx} eingebunden werden, dieses unterstützt gängige
+Bildformate wie \myFormat{png, jpeg} aber auch Graphiken im \myFormat{pdf} Format können eingebunden werden.
 das zugehöhrige Kommando lautet:
 \begin{verbatim}
 \includegraphics{/pfad/zur/bilddatei}
 \end{verbatim}
-Zu beachten ist dabei, dass die Dateiendung nicht anggeben werden muss. Um also beispielsweise \textit{bsp.jpeg}
+Zu beachten ist dabei, dass die Dateiendung nicht anggeben werden muss. Um also beispielsweise \myPath{bsp.jpeg}
 einzubinden reicht \verb+\includegraphics{bsp}+.
+
+Ich benötige für meine Physikprotokolle oft mittig gesetzte Bilder, die ggf. auch über den Text heraustehen.
+Ich verwende hierfür folgende Umgebung:
+\begin{verbatim}
+\begin{center}
+  \begin{minipage}{\linewidth}
+    \centering
+    \makebox[0cm]{\includegraphics[width=...]{/pfad/zur/bilddatei}}
+  \end{minipage}
+\end{center}
+\end{verbatim}
+
+Um eine Bildunterschrift hinzuzufügen gibt es das \myPackage{caption}, eine Unterschrift kann hiermit einfach
+durch ein \verb+\captionof{figure}{...}+ hinzugefügt werden.
+
+Da es sich nun um alles andere als ein kurzes einfaches Kommando handelt bietet es sich an diesen block als neues
+Kommando zu definieren, siehe hierfür \mySecRef{customCommands}.
 \section{Mathematiksatz}
 Da ich im Physikstudium diverse Protokolle mit viel mthematischem Inhalt schreibe möchte ich auch die
 Grundlagen vom Mathematiksatz in Latex erkären.
 
-Auch ohne zusätzliches Paket bietet Latex schon einen Mathematikmodus, der über den \$-Delimiter eingeleitet und beendet wird. als Beispiel liefert
+Auch ohne zusätzliches Paket bietet Latex schon einen Mathematikmodus, der durch eine \verb+$...$+
+Umgebung eingeleitet wird und beendet wird. als Beispiel liefert
 \begin{verbatim}
 $a^2 + b^2 = c^2$
 \end{verbatim}
 folgende Ausgabe:
-$a^2 + b^2 = c^2$. Um auch ganze Rechnung oder Formelsammlungen in Latex einzubetten gibt es das \verb+amsmath+
-Paket. Dieses stellt eine Umgebung für Gleichungen und für Formelblöcke zur Verfügung. benutzt werden diese wie
-folgt:
+$a^2 + b^2 = c^2$. Um auch ganze Rechnung oder Formelsammlungen in Latex einzubetten gibt es das
+\myPackage{amsmath}. Dieses stellt eine Umgebung für Gleichungen und für Formelblöcke zur Verfügung.
+Benutzt werden diese wie folgt:
 \begin{verbatim}
+\begin{equation}
+  a^2 + b^2 = c^2
+\end{equation}
 
+\begin{align}
+  0       &= x^2 + px + q \\
+  0       &= x^2 + px + \frac{1}{4}p^2 - \frac{1}{4}p^2 + q \\
+  \frac{1}{4}p^2 - q &= \left(x + \frac{1}{2}p \right)^2 \\
+  \pm \sqrt{ \frac{1}{4}p^2 - q} &= x + \frac{1}{2}p \\
+  x_{1/2} &= \frac{1}{2}p \pm \sqrt{\left(\frac{1}{2}p\right)^2 - q}  
+\end{align}
 \end{verbatim}
+Was die folgende Ausgabe erzeugt:
+\begin{equation}
+  a^2 + b^2 = c^2
+\end{equation}
+
+\begin{align}
+  0                  &= x^2 + px + q \\
+  0                  &= x^2 + px + \frac{1}{4}p^2 - \frac{1}{4}p^2 + q \\
+  \frac{1}{4}p^2 - q &= \left(x + \frac{1}{2}p \right)^2 \\
+  \pm \sqrt{ \frac{1}{4}p^2 - q} &= x + \frac{1}{2}p \\
+  x_{1/2}            &= \frac{1}{2}p \pm \sqrt{\left(\frac{1}{2}p\right)^2 - q}  
+\end{align}
 \section{Tabellen}
-\section{Eigene Kommandos}
-\section{Verweise}
+\section{Eigene Kommandos}\label{sec:customCommands}
+Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
+die üergeben Parameter können mit \verb+#1+, \verb+#2+, ... verwendet werden. Auch vorhandene Kommandos
+können mit \verb+\renewcommand[anzahl parameter]{\kommando}+ umgeschrieben werden. 
+\section{Verweise/Referenzen}
 \section{Arbeiten im Team}
 \end{document}
