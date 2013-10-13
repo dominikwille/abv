@@ -1,0 +1,35 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, ngerman]{babel}%trennregeln für En und De
+\usepackage{libertine}
+\usepackage{xstring}
+\usepackage{amssymb,amstext,amsmath}
+\usepackage{graphicx}
+\usepackage{sectsty}
+\usepackage{multirow}
+\usepackage{dsfont}
+\usepackage{amsfonts}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{dsfont}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{ifthen}
+
+\newcommand{\myImage}[2]{
+  \begin{center}
+    \begin{minipage}{\linewidth}
+      \centering
+      \makebox[0cm]{\includegraphics[width=\textwidth]{#1}}
+    \end{minipage}
+    \ifthenelse{ \equal{#2}{}} {
+      
+    } {
+    \captionof{figure}{#2}
+    }
+  \end{center}
+}
+
+\newcommand{\mySecRef}[1]{%
+  \hyperref[sec:#1]{Punkt-}\ref{sec:#1}%
+}
