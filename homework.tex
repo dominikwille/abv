@@ -83,10 +83,11 @@ Um ein Inhaltsverzeichnis zu erzeugen reicht es \verb+\tableofcotents+ aufzurufe
 automatisch ein Inhaltsverzeichnis der Sektionen des Latex-Dokuments.
 
 \section{Textsatz}
-Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Sehr oft ist es hilfreich
-eine automatische Worttreenung zu aktivieren um einen schönen Blocksatz zu erreichen. Das \myPackage{babel}
-liefert für viele Sprachen eine automatische Silbenerkennung, die eine korrekte Worttrennung ermöglicht. Um
-das Paket einzubinden genügt ein simples
+Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Beim schreiben eines
+latex-Dokuments ist es bis auf Doppelte Leerzeilen, die einen Paragraphen erzeugen nicht relevant, wie die
+Quelldatei formatiert ist. Sehr oft ist es hilfreich eine automatische Worttreenung zu aktivieren um einen
+schönen Blocksatz zu erreichen. Das \myPackage{babel} liefert für viele Sprachen eine automatische
+Silbenerkennung, die eine korrekte Worttrennung ermöglicht. Um das Paket einzubinden genügt ein simples
 \begin{verbatim}
 \usepackage[english, ngerman, ...]{babel} 
 \end{verbatim}
@@ -99,11 +100,18 @@ von den einfachen Kommandos
 \textit{kursiv gesetzter Text}
 \underline{unterstricherner Text}
 \end{verbatim}
-an. Um Textteile so auszugeben wir sie im Tex-Dokument stehen gibt es die \textit{verbatim}-umgebeung.
+an. Um Textteile so auszugeben wir sie im Tex-Dokument stehen gibt es die \textit{verbatim}-umgebeung. 
+\\ \\
+\verb+\begin{verbatim}+\\
+\verb+  ...+\\
+\verb+\end{verbatim}+\\
+\\
+Möchte man einzelne Kommandos o.ä. im Fließtext unterbringen kann man das mit dem \verb+\verb+ Kommando tun.
+Dieses Kommando erwartet einen Delimiter um den wortgetreuen Text zu begrenzen.
 \begin{verbatim}
-\begin{verbatim}
+\verb+format C:+
 \end{verbatim}
-\end{verbatim}
+Dieses Beispiel gibt \verb+format C:+ aus. Das \verb#+# ist hierbei der Delimiter.
 
 \section{Bilder}
 Bilder können in Latex mit dem \myPackage{graphicx} eingebunden werden, dieses unterstützt gängige
@@ -194,7 +202,6 @@ Listen können natürlich verschachtelt werden wobei sich die Darstellung der Li
 \item
   \begin{itemize}
   \item bla
-  \item bli
   \item blu
   \item
     \begin{itemize}
@@ -208,6 +215,7 @@ Listen können natürlich verschachtelt werden wobei sich die Darstellung der Li
 \item[Pinguin] Vogel, der am Südpol lebt. 
 \end{description}
 \end{verbatim}
+\newpage
 Dieses Beispiel erzeugt die folgende Ausgabe:
 \begin{enumerate}
 \item
@@ -219,7 +227,6 @@ Dieses Beispiel erzeugt die folgende Ausgabe:
 \item
   \begin{itemize}
   \item bla
-  \item bli
   \item blu
   \item
     \begin{itemize}
@@ -260,7 +267,7 @@ Die Ausrichtung des Inhalts einer Spalte wird in der Tabellen-Umgebeung definier
 
 \begin{center}
   {
-    \rowcolors{3}{}{blue!30}
+    \rowcolors{3}{}{blue!30}%
     \begin{tabular}{c c c r}\\\toprule
       Spalte 1 & Spalte 2 & Spalte 3 & \# \\\midrule
       a & b & c & 1\\
@@ -278,6 +285,17 @@ die Hintergrundfarbe alternieren zu lassen gibt es im \myPackage{xcolor} Paket
 \begin{verbatim}
 \usepackage[table]{xcolor}
 \end{verbatim}
+
+\section{Fußnoten}
+Gerade bei Tabellen, in denen man den Inhalt der Felder möglichst kurz halten will, kann es hilfreich sein
+Fußnoten zu verwenden. Aber auch im normalen Fließtext macht es das Schriftbild durch die Vermeidung von Klammern
+schöner und besser lesabr. Eine Fußnote kann einfach über das \verb+\footnote{...}+-Kommando hinzugefügt werden
+Die Fußnote wird dann auf der aktuellen Seite im Unteren Bereich der Seite angezeigt.
+\begin{verbatim}
+\footnote{Dieses Beispiel erzeugt die Fußnote im unetren Seitenrand}
+\end{verbatim}
+Als Beispiel gebe ich diese Fußnote\footnote{Dieses Beispiel erzeugt die Fußnote im unetren Seitenrand} im
+Fließtext.
 
 \section{Eigene Kommandos}\label{sec:customCommands}
 Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
@@ -314,7 +332,7 @@ die kleine Unterschiede haben:
 \end{description}
 
 \section{Verweise/Referenzen}
-Die einfachste möglichkeit in Latex verweise zu implementieren ist es den abschnitten, auf die man verweisen
+Die einfachste möglichkeit in Latex Verweise zu implementieren ist es den abschnitten, auf die man verweisen
 möchte ein label zu geben. Das kann man einfach mit dem \verb+\label{...}+ Kommando machen. Verweise können auf
 Verschiedene Objekte zeigen, z.B. Bilder, Tabellen, Sektionen oder Gleichungen.
 
@@ -351,10 +369,13 @@ Latex-Übersetzungsvorgang erzeugten Datein nicht ausgetauscht werden. Hier mein
 *.dvi
 \end{verbatim}
 
-\section{Fazit nach einem Jahr Latex}
+\section{Fazit}
 Nach nun ca. einem jahr in dem ich Latex benutze kann ich sagen, dass mein Schreiben von Dokumenten sich nachhaltig
-verändert hat. Die herangehensweise ist um längen systematischer als bei WYSIWIG basierter Software und ich
-erreiche bei längeren Dokumenten im endeffekt schneller gute Ergebnisse, da ich mich genau Ein mal mit der
-formattierung und dem Satz eines Elements beschäftige und nicht jedes mal aufs neue. Außerdem bietet Latex
-von Haus aus Textsatz auf höchstem Niveau, was bei anderer Software häufig nicht der Fall ist.
+verändert hat. Die Herangehensweise in Latex ist um längen systematischer als bei WYSIWIG basierter Software und ich
+erreiche bei längeren Dokumenten im endeffekt schneller gute Ergebnisse, da ich mich beim Schreiben nur um den Inhalt
+und nicht um die Formatierung kümmere. Außerdem bietet Latex von Haus aus Textsatz auf höchstem Niveau, was bei
+anderer Software häufig nicht der Fall ist.
+
+Man muss sicherlich etwas Zeit investieren um Latex vernünftig benutzen zu können, allerdings muss man das auch
+bei jeder anderen Software.
 \end{document}
