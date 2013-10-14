@@ -29,17 +29,17 @@
 \begin{document}
 \myTitlepage
 \section{Vorwort}
-Bei diesem Dokument handelt es sich um eine im Ramen des ABV-Kurses Betriebsysteme und Programmieren der
-Freien-Universität-Berlin angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
+Bei diesem Dokument handelt es sich um eine, im Rahmen des ABV-Kurses Betriebsysteme und Programmieren der
+Freien-Universität-Berlin, angefärtigte Hausarbeit, die die erlernten Grundlagen von Latex zusammenfasst.
 
-Im folegenden werde ich sowohl auf den Textsatz mit Latex als auch auf einen meiner meinung nach sinnvollen
+Im folegenden werde ich sowohl auf den Textsatz mit Latex, als auch auf einen meiner Meinung nach sinnvollen
 Arbeitsweg mit Latex eingehen.
 
 Desweiteren möchte ich dieses Dokument möglichst so gestalten, dass viele wiederkehrende Elemete in Latex in
-Makros gekaplselt werden und somit für weitere Dokumente wiederverwendet werden können.
+Makros gekapselt werden, und somit für weitere Dokumente wiederverwendet werden können.
 
 \section{Dokumentenklassen}
-Jedes Latex-Dokument verwendet eine so genannte Dokumentenklasse, diese gibt ein Grundgerüst des Dokuments,
+Jedes Latex-Dokument verwendet eine sogenannte Dokumentenklasse. Diese gibt ein Grundgerüst des Dokuments,
 wie z.B. Seitenrandabstände, Schriftgrößen und Einrückungsverhalten vor. Definiert wird die Dokumentenklasse
 mit dem Kommando \verb+\documentclass{...}+. Die wichtigsten Dokumentenklassen für den deutschsprachigen
 Raum sind:
@@ -48,16 +48,16 @@ Raum sind:
 \item[scrreprt] Klasse für lange Berichte.
 \item[scrbook] Klasse für Bücher.
 \end{description}
-Die meisten Dokumentenklassen ermöglichen es außerdem gewisse parameter optional zu verändern. Ich verwende in
-diesem Dokument bespielsweise 
+Die meisten Dokumentenklassen ermöglichen es außerdem, gewisse Parameter optional zu verändern. Ich verwende in
+diesem Dokument bespielsweise
 \begin{verbatim}
 \documentclass[a4paper, parskip=half]{scrartcl}
 \end{verbatim}
-um die Seitenränder auf europäische Normen einzustellen und um Absätze als Leerzeile mit halber höhe zu setzen.
+um die Seitenränder auf europäische Normen einzustellen und um Absätze als Leerzeile mit halber Höhe zu setzen.
 
 Mit \verb+\maketitle+ bietet Latex auch eine möglichkeit einen Dokumentenkopf zu erzeugen. Die verwendeten
 Informationen werden vorher in der Präambel mit \verb+\title{...}+, \verb+\auther{...}+ und
-\verb+ \date{...}+ definiert. Möchte man eine Eigene Titelseite gestalten kann man das zu Beginn des Dokuments
+\verb+ \date{...}+ definiert. Möchte man eine eigene Titelseite gestalten, kann man das zu Beginn des Dokuments
 in der 
 \begin{verbatim}
 \begin{titlepage}
@@ -83,30 +83,30 @@ Um ein Inhaltsverzeichnis zu erzeugen reicht es \verb+\tableofcotents+ aufzurufe
 automatisch ein Inhaltsverzeichnis der Sektionen des Latex-Dokuments.
 
 \section{Textsatz}
-Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Beim schreiben eines
-latex-Dokuments ist es bis auf Doppelte Leerzeilen, die einen Paragraphen erzeugen nicht relevant, wie die
-Quelldatei formatiert ist. Sehr oft ist es hilfreich eine automatische Worttreenung zu aktivieren um einen
+Historisch bedigt ist Tex bzw. Latex vorallem für einen optimierten Textsatz konzipiert. Beim Schreiben eines
+Latex-Dokuments ist es bis auf doppelte Leerzeilen, die einen Paragraphen erzeugen nicht relevant, wie die
+Quelldatei formatiert ist. Sehr oft ist es hilfreich, eine automatische Worttreenung zu aktivieren, um einen
 schönen Blocksatz zu erreichen. Das \myPackage{babel} liefert für viele Sprachen eine automatische
 Silbenerkennung, die eine korrekte Worttrennung ermöglicht. Um das Paket einzubinden genügt ein simples
 \begin{verbatim}
 \usepackage[english, ngerman, ...]{babel} 
 \end{verbatim}
 in der Präambel. Einer der großen Vorteile bei der Arbeit mit Latex ist, dass man ein semantisch korrektes
-Dokument schreibt und die Darstellung vom Dokument ersteinmal nichts mit deren Inhalt zutun hat. Um Teile
-des Textes \textit{kursiv}, \textbf{fett} oder \underline{unterstrichen} darzustellen bietet sich die Verwendung 
+Dokument schreibt und die Darstellung des Dokuments ersteinmal nichts mit dessen Inhalt zutun hat. Um Teile
+des Textes \textit{kursiv}, \textbf{fett} oder \underline{unterstrichen} darzustellen, bietet sich die Verwendung 
 von den einfachen Kommandos 
 \begin{verbatim}
 \textbf{fett gesetzter Text}
 \textit{kursiv gesetzter Text}
 \underline{unterstricherner Text}
 \end{verbatim}
-an. Um Textteile so auszugeben wir sie im Tex-Dokument stehen gibt es die \textit{verbatim}-umgebeung. 
+an. Um Textteile so auszugeben, wie sie im Tex-Dokument stehen, gibt es die \textit{verbatim}-Umgebeung. 
 \\ \\
 \verb+\begin{verbatim}+\\
 \verb+  ...+\\
 \verb+\end{verbatim}+\\
 \\
-Möchte man einzelne Kommandos o.ä. im Fließtext unterbringen kann man das mit dem \verb+\verb+ Kommando tun.
+Möchte man einzelne Kommandos o.Ä. im Fließtext unterbringen, kann man das mit dem \verb+\verb+ Kommando tun.
 Dieses Kommando erwartet einen Delimiter um den wortgetreuen Text zu begrenzen.
 \begin{verbatim}
 \verb+format C:+
@@ -116,7 +116,7 @@ Dieses Beispiel gibt \verb+format C:+ aus. Das \verb#+# ist hierbei der Delimite
 \section{Bilder}
 Bilder können in Latex mit dem \myPackage{graphicx} eingebunden werden, dieses unterstützt gängige
 Bildformate wie \myFormat{png, jpeg} aber auch Graphiken im \myFormat{pdf} Format können eingebunden werden.
-das zugehöhrige Kommando lautet:
+Das zugehöhrige Kommando lautet:
 \begin{verbatim}
 \includegraphics{/pfad/zur/bilddatei}
 \end{verbatim}
@@ -137,20 +137,20 @@ Ich verwende hierfür folgende Umgebung:
 Um eine Bildunterschrift hinzuzufügen gibt es das \myPackage{caption}, eine Unterschrift kann hiermit einfach
 durch ein \verb+\captionof{figure}{...}+ hinzugefügt werden.
 
-Da es sich nun um alles andere als ein kurzes einfaches Kommando handelt bietet es sich an diesen block als neues
+Da es sich nun um alles andere als ein kurzes, einfaches Kommando handelt, bietet es sich an diesen Block als neues
 Kommando zu definieren, siehe hierfür \mySecRef{customCommands}.
 
 \section{Mathematiksatz}
-Da ich im Physikstudium diverse Protokolle mit viel mthematischem Inhalt schreibe möchte ich auch die
-Grundlagen vom Mathematiksatz in Latex erkären.
+Da ich im Physikstudium diverse Protokolle mit viel mthematischem Inhalt schreibe, möchte ich auch die
+Grundlagen vom Mathematiksatz in Latex erklären.
 
 Auch ohne zusätzliches Paket bietet Latex schon einen Mathematikmodus, der durch eine \verb+$...$+
-Umgebung eingeleitet wird und beendet wird. als Beispiel liefert
+Umgebung eingeleitet und beendet wird. als Beispiel liefert
 \begin{verbatim}
 $a^2 + b^2 = c^2$
 \end{verbatim}
 folgende Ausgabe:
-$a^2 + b^2 = c^2$. Um auch ganze Rechnung oder Formelsammlungen in Latex einzubetten gibt es das
+$a^2 + b^2 = c^2$. Um auch ganze Rechnungen oder Formelsammlungen in Latex einzubetten, gibt es das
 \myPackage{amsmath}. Dieses stellt eine Umgebung für Gleichungen und für Formelblöcke zur Verfügung.
 Benutzt werden diese wie folgt:
 \begin{verbatim}
@@ -180,16 +180,16 @@ Was die folgende Ausgabe erzeugt:
 \end{align}
 
 \section{Listen}
-Es gibt in Latex drei typen von Listen \verb+itemize+, \verb+enumerate+ und \verb+description+, die für
-Verschiedene Verwendungszwecke konzipiert sind:
+Es gibt in Latex drei Typen von Listen \verb+itemize+, \verb+enumerate+ und \verb+description+, die für
+verschiedene Verwendungszwecke konzipiert sind:
 \begin{description}
-\item[itemize] Wird für unsortierte Listen oder Aufzählungen verwendet, die einzelnen Elmente sind alle
+\item[itemize] wird für unsortierte Listen oder Aufzählungen verwendet; die einzelnen Elmente sind alle
   gleich ausgezeichnet.
-\item[enumerate] Wird für sortierte Listen oder Aufzählungen verwendet, die einzelten Elemente werden
+\item[enumerate] wird für sortierte Listen oder Aufzählungen verwendet; die einzelnen Elemente werden
   nummeriert oder mit aufsteigenden Buchstaben versehen.
-\item[description] Wird für Listen von Elementen mit Namen verwendet. 
+\item[description] wird für Listen von Elementen mit Namen verwendet. 
 \end{description}
-Listen können natürlich verschachtelt werden wobei sich die Darstellung der Listenpunkte je nach Verschachtelung
+Listen können natürlich verschachtelt werden, wobei sich die Darstellung der Listenpunkte je nach Verschachtelung
 ändert. Hier ein Beispiel:
 \begin{verbatim}
 \begin{enumerate}
@@ -241,14 +241,14 @@ Dieses Beispiel erzeugt die folgende Ausgabe:
 \end{description}
 
 \section{Tabellen}
-Selbstverständlich bietet Latex auch die Möglichkeit Tabellen zu erstellen die wichtigesten typen sind:
+Selbstverständlich bietet Latex auch die Möglichkeit, Tabellen zu erstellen. Die wichtigesten Typen sind:
 \begin{description}
 \item[tabular] Gewöhnliche Tabellen
 \item[longtable] Tabellen, die über mehrere Seiten reichen.
 \item[tabularx] Tabellen mit fester Gesamtbreite.
 \end{description}
 Die Ausrichtung des Inhalts einer Spalte wird in der Tabellen-Umgebeung definiert. Zeilen werden durch ein
-\verb+\\+ umgebrochen und Felder mit einem \verb+&+ abgegrenzt. Eine Beispieltabelle in Latex sieht z.B. so aus:
+\verb+\\+ umgebrochen und Felder mit einem \verb+&+ abgegrenzt. Eine Tabelle in Latex sieht z.B. so aus:
 \begin{verbatim}
 \begin{center}
   {
@@ -279,9 +279,12 @@ Die Ausrichtung des Inhalts einer Spalte wird in der Tabellen-Umgebeung definier
   }
 \end{center}
 
-Bei diesem Beispiel wurde das \myPackage{booktabs} benutzt, dass Tabellen optimiert für Bücher bereit stellt. Um
-die Hintergrundfarbe alternieren zu lassen gibt es im \myPackage{xcolor} Paket
-\verb+\rowcolors{start}{farbe1}{farbe2}+. Hierfür muss das paket folgendermaßen geladen werden:
+Bei diesem Beispiel wurde das \myPackage{booktabs} benutzt, das Tabellen optimiert für Bücher bereit stellt. Um
+die Hintergrundfarbe alternieren zu lassen gibt es im \myPackage{xcolor}:
+\begin{verbatim}
+\rowcolors{start}{farbe1}{farbe2}
+\end{verbatim}
+ Hierfür muss das Paket folgendermaßen geladen werden:
 \begin{verbatim}
 \usepackage[table]{xcolor}
 \end{verbatim}
@@ -290,7 +293,7 @@ die Hintergrundfarbe alternieren zu lassen gibt es im \myPackage{xcolor} Paket
 Gerade bei Tabellen, in denen man den Inhalt der Felder möglichst kurz halten will, kann es hilfreich sein
 Fußnoten zu verwenden. Aber auch im normalen Fließtext macht es das Schriftbild durch die Vermeidung von Klammern
 schöner und besser lesabr. Eine Fußnote kann einfach über das \verb+\footnote{...}+-Kommando hinzugefügt werden
-Die Fußnote wird dann auf der aktuellen Seite im Unteren Bereich der Seite angezeigt.
+Die Fußnote wird dann auf der aktuellen Seite im unteren Bereich angezeigt.
 \begin{verbatim}
 \footnote{Dieses Beispiel erzeugt die Fußnote im unetren Seitenrand}
 \end{verbatim}
@@ -298,68 +301,68 @@ Als Beispiel gebe ich diese Fußnote\footnote{Dieses Beispiel erzeugt die Fußno
 Fließtext.
 
 \section{Eigene Kommandos}\label{sec:customCommands}
-Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
-die üergeben Parameter können mit \verb+#1+, \verb+#2+, ... verwendet werden. Auch vorhandene Kommandos
-können mit \verb+\renewcommand[anzahl parameter]{\kommando}+ umgeschrieben werden. Als beispiel kann man mit
+Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden.
+Die übergebenen Parameter können mit \verb+#1+, \verb+#2+, ... verwendet werden. Auch vorhandene Kommandos
+können mit \verb+\renewcommand[anzahl parameter]{\kommando}+ umgeschrieben werden. Als Beispiel kann man mit
 \begin{verbatim}
 \newcommand{\fett}[1]{%
   \textit{#1}%
 }
 \end{verbatim}
-nun mit einem aufruf von \verb+\fett{...}+ text fett setzten.
+nun mit einem Aufruf von \verb+\fett{...}+ Text fett setzten.
 
-Kommandos können sehr Praktisch sein um wiederkehrende Code-Blöcke zu kapseln, aber auch um ein Dokument
+Kommandos können sehr Praktisch sein, um wiederkehrende Code-Blöcke zu kapseln, aber auch um ein Dokument
 semantisch zu schreiben. Ich benutze bespielsweise in diesem Dokument für alle Paketnamen, Dateipfade und
-andere wiederkehrende Elemente, weil ich beim schreiben des Dokuments noch nicht genau weiß wie ich diese
+andere wiederkehrende Elemente Kommandos, weil ich beim Schreiben des Dokuments noch nicht genau weiß, wie ich diese
 setzen möchte, aber auf jeden Fall alle gleich sein sollen. 
 
-Eine andere Anwendung besteht darin Kommandos dafür zu benutzen kanze Dokumententeile zu gestalten und im
-Eigentlichen Dokument nur die Kommandos aufzurufen. Da das Dokuemnt in einer solchen Anwendung keinen Inhalt
+Eine andere Anwendung besteht darin, Kommandos dafür zu benutzen, ganze Dokumententeile zu gestalten, und im
+eigentlichen Dokument nur die Kommandos aufzurufen. Da das Dokuemnt in einer solchen Anwendung keinen Inhalt
 enthält kann man es als Vorlage wieder verwenden. 
 
 \section{Datein einbinden}
-Gerade in größeren Dokumenten kann man schnell die übersicht verlieren oder man möchte Definitionen oder
+Gerade in größeren Dokumenten kann man schnell die Übersicht verlieren oder man möchte Definitionen oder
 Teile des Dokuments nicht im Hauptdokument haben. Außerdem kann bei sehr langen Dokumenten das Übersetzten
-von Latex in eine pdf viel zeit beanspruchen und man möchte nicht bei jeder Änderung das gesamte Dokument
+von Latex in eine pdf viel Zeit beanspruchen und man möchte nicht bei jeder Änderung das gesamte Dokument
 übersetzen. 
 
-Latex bietet dafür zwei Kommandos um sepeparte Datein einzubinden \verb+\input{...}+ und \verb+\include{...}+,
-die kleine Unterschiede haben:
+Latex bietet dafür zwei Kommandos um sepeparte Datein einzubinden \verb+\input{...}+ und \verb+\include{...}+.
+Diese haben kleine Unterschiede:
 \begin{description}
-  \item[input] Fügt die Kommandos aus der angegebenen datei in die aktuelle Datei ein.
-  \item[include] Fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
+  \item[input] fügt die Kommandos aus der angegebenen Datei in die aktuelle Datei ein.
+  \item[include] fügt den übersetzten Teil der Datei in das erzeugte Dokuemnt ein; erfordert eine neue
     Seite. 
 \end{description}
 
 \section{Verweise/Referenzen}
-Die einfachste möglichkeit in Latex Verweise zu implementieren ist es den abschnitten, auf die man verweisen
-möchte ein label zu geben. Das kann man einfach mit dem \verb+\label{...}+ Kommando machen. Verweise können auf
-Verschiedene Objekte zeigen, z.B. Bilder, Tabellen, Sektionen oder Gleichungen.
+Die einfachste Möglichkeit in Latex Verweise zu implementieren, ist es den Abschnitten, auf die man verweisen
+möchte ein Label zu geben. Das kann man einfach mit dem \verb+\label{...}+ Kommando machen. Verweise können auf
+verschiedene Objekte zeigen, z.B. Bilder, Tabellen, Sektionen oder Gleichungen.
 
 Den Verweis kann man einfach mit \verb+\ref{label}+ implementieren, angezeigt wird immer die Nummer des Objekts,
 auf das verwiesen wird. Besonders praktisch ist hier auch das \myPackage{hyperref}, mit dessen Hilfe man aktive
-links innerhalb des Dokuments erhält, um unschöne Änderungen des Textsatzes zu verhindern lädt man das Paket mit
-der hidelinks Option:
+Links innerhalb des Dokuments erhält. Um unschöne Änderungen des Textsatzes zu verhindern, lädt man das Paket mit
+der \textit{hidelinks}-Option:
 \begin{verbatim}
 \usepackage[hidelinks]{hyperref}
 \end{verbatim}
 
-Für Gleichungen im Mathematikmodus, die man natürlich auch mit einem label versehn kann gibt es außerdem noch
-den \verb+\eqref+ der eine angepasste Ausgabe mit Klammern bereitstellt. 
+Für Gleichungen im Mathematikmodus, die man natürlich auch mit einem Label versehn kann, gibt es außerdem noch
+den \verb+\eqref+, der eine angepasste Ausgabe mit Klammern bereitstellt. 
 
 \section{Arbeiten im Team}
-Eine Praktische Eigenschaft von Latex Dokumenten ist, dass man nicht das Dokument an sich sondern seine erzeugenden
-\myPath{*.tex}-Datein austauschen muss. Denn da es sich bei diesen um simple Textdatein handelt kann man diverse
+Eine praktische Eigenschaft von Latex Dokumenten ist, dass man nicht das Dokument an sich, sondern seine erzeugenden
+\myPath{*.tex}-Datein austauschen muss. Denn da es sich bei diesen, um simple Textdatein handelt, kann man diverse
 Versionierungssysteme für Latex-Dokumente verwenden. 
 
 Ich benutze für alle meine Dokumente \textit{git} zur verteilten Versionierung und habe mir generell angewöhnt
-auch alleine kein Latex-Dokument mehr zu schrieben ohne nach wichtigen Änderungen einen Commit zu machen. Das hat
-den Vorteil, dass mir jeder zeit jemand bei meinem Dokument helfen kann und seine Ändereungen automitisch mit
-meinen Änderungen zusammengefügt werden außerdem kann ich jede Änderung, die irgendwann commitet wurde später noch
+auch alleine kein Latex-Dokument mehr zu schreiben, ohne nach wichtigen Änderungen einen Commit zu machen. Das hat
+den Vorteil, dass mir jeder Zeit jemand bei meinem Dokument helfen kann und seine Ändereungen automitisch mit
+meinen Änderungen zusammengefügt werden. Außerdem kann ich jede Änderung, die irgendwann commitet wurde später noch
 nachvollziehen.
 
-Um effektiv mit \textit{git} arbeiten sollte man die \myPath{.gitignore} dahingehend bearbeiten, dass die vom
-Latex-Übersetzungsvorgang erzeugten Datein nicht ausgetauscht werden. Hier meine konfiguration für
+Um effektiv mit \textit{git} zu arbeiten, sollte man die \myPath{.gitignore} dahingehend bearbeiten, dass die vom
+Latex-Übersetzungsvorgang erzeugten Datein nicht ausgetauscht werden. Hier meine Konfiguration für
 \textit{pdflatex}:
 \begin{verbatim}
 *.toc
@@ -370,9 +373,9 @@ Latex-Übersetzungsvorgang erzeugten Datein nicht ausgetauscht werden. Hier mein
 \end{verbatim}
 
 \section{Fazit}
-Nach nun ca. einem jahr in dem ich Latex benutze kann ich sagen, dass mein Schreiben von Dokumenten sich nachhaltig
-verändert hat. Die Herangehensweise in Latex ist um längen systematischer als bei WYSIWIG basierter Software und ich
-erreiche bei längeren Dokumenten im endeffekt schneller gute Ergebnisse, da ich mich beim Schreiben nur um den Inhalt
+Nach nun ca. einem Jahr in dem ich Latex benutze, kann ich sagen, dass mein Schreiben von Dokumenten sich nachhaltig
+verändert hat. Die Herangehensweise in Latex ist um Längen systematischer als bei WYSIWIG basierter Software und ich
+erreiche bei längeren Dokumenten im Endeffekt schneller gute Ergebnisse, da ich mich beim Schreiben nur um den Inhalt
 und nicht um die Formatierung kümmere. Außerdem bietet Latex von Haus aus Textsatz auf höchstem Niveau, was bei
 anderer Software häufig nicht der Fall ist.
 
