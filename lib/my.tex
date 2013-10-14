@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english, ngerman]{babel}%trennregeln für En und De
+\usepackage[english, ngerman]{babel}
 \usepackage{libertine}
 \usepackage{xstring}
 \usepackage{amssymb,amstext,amsmath}
@@ -17,6 +17,15 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{caption}
 \usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+
+\hypersetup{
+  pdftitle    = {\myTitle},
+  pdfauthor   = {\myAuthor},
+  pdfcreator  = {pdflatex},
+  pdfproducer = {LaTeX with hyperref}
+}
 
 \newcommand{\myImage}[2]{
   \begin{center}
@@ -48,7 +57,7 @@
     \myDate
 
     \vspace{2cm}
-    \myImage{\myTitleImage}{} %This Image is GNU GPL licenced.
+    \myImage{\myTitleImage}{}
   \end{center}
   \vfill
   \enlargethispage{2cm}

@@ -15,7 +15,7 @@
 \newcommand{\myTitle}{\LaTeX - Grundlagen}
 \newcommand{\myAuthor}{Dominik Wille}
 \newcommand{\myDate}{22 Oktober 2013}
-\newcommand{\myTitleImage}{images/typesetting}
+\newcommand{\myTitleImage}{images/typesetting} %This Image is GNU GPL licenced.
 \newcommand{\myTitleLeft}{%
    Freie Universität Berlin\\
    Zentraleinrichtung für Datenverarbeitung\\
@@ -43,11 +43,11 @@ Jedes Latex-Dokument verwendet eine so genannte Dokumentenklasse, diese gibt ein
 wie z.B. Seitenrandabstände, Schriftgrößen und Einrückungsverhalten vor. Definiert wird die Dokumentenklasse
 mit dem Kommando \verb+\documentclass{...}+. Die wichtigsten Dokumentenklassen für den deutschsprachigen
 Raum sind:
-\begin{itemize}
-\item \textbf{scrartcl} Klasse für kurze Artikel.
-\item \textbf{scrreprt} Klasse für lange Berichte.
-\item \textbf{scrbook} Klasse für Bücher.  
-\end{itemize}
+\begin{description}
+\item[scrartcl] Klasse für kurze Artikel.
+\item[scrreprt] Klasse für lange Berichte.
+\item[scrbook] Klasse für Bücher.
+\end{description}
 Die meisten Dokumentenklassen ermöglichen es außerdem gewisse parameter optional zu verändern. Ich verwende in
 diesem Dokument bespielsweise 
 \begin{verbatim}
@@ -230,6 +230,50 @@ Dieses Beispiel erzeugt die folgende Ausgabe:
 \end{description}
 
 \section{Tabellen}
+Selbstverständlich bietet Latex auch die Möglichkeit Tabellen zu erstellen die wichtigesten typen sind:
+\begin{description}
+\item[tabular] Gewöhnliche Tabellen
+\item[longtable] Tabellen, die über mehrere Seiten reichen.
+\item[tabularx] Tabellen mit fester Gesamtbreite.
+\end{description}
+Die Ausrichtung des Inhalts einer Spalte wird in der Tabellen-Umgebeung definiert. Zeilen werden durch ein
+\verb+\\+ umgebrochen und Felder mit einem \verb+&+ abgegrenzt. Eine Beispieltabelle in Latex sieht z.B. so aus:
+\begin{verbatim}
+\begin{center}
+  {
+    \rowcolors{3}{}{blue!30}
+    \begin{tabular}{c c c r}\\\toprule
+      Spalte 1 & Spalte 2 & Spalte 3 & \# \\\midrule
+      a & b & c & 1\\
+      a & b & c & 2\\
+      a & b & c & 3\\
+      a & b & c & 4\\
+      a & b & c & 5\\\bottomrule
+    \end{tabular}
+  }
+\end{center}
+\end{verbatim}
+
+\begin{center}
+  {
+    \rowcolors{3}{}{blue!30}
+    \begin{tabular}{c c c r}\\\toprule
+      Spalte 1 & Spalte 2 & Spalte 3 & \# \\\midrule
+      a & b & c & 1\\
+      a & b & c & 2\\
+      a & b & c & 3\\
+      a & b & c & 4\\
+      a & b & c & 5\\\bottomrule
+    \end{tabular}
+  }
+\end{center}
+
+Bei diesem Beispiel wurde das \myPackage{booktabs} benutzt, dass Tabellen optimiert für Bücher bereit stellt. Um
+die Hintergrundfarbe alternieren zu lassen gibt es im \myPackage{xcolor} Paket
+\verb+\rowcolors{start}{farbe1}{farbe2}+. Hierfür muss das paket folgendermaßen geladen werden:
+\begin{verbatim}
+\usepackage[table]{xcolor}
+\end{verbatim}
 
 \section{Eigene Kommandos}\label{sec:customCommands}
 Ein neues Kommando kann mit \verb+\newcommand[anzahl parameter]{\kommando}{...}+ definiert werden
